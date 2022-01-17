@@ -12,6 +12,9 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15"
   },
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
+  },
   "name": "server",
   "version": "1.0.0",
   "main": "app.js",
