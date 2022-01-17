@@ -26,6 +26,9 @@
     "workbox-strategies": "^5.1.4",
     "workbox-streams": "^5.1.4"
   },
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
