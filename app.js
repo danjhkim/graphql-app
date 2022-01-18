@@ -13,8 +13,7 @@ if (process.env.NODE_ENV !== 'production') {
 	// var whitelist = ['http://localhost:3000', 'http://localhost:4000'];
 } else {
 	// var whitelist = ['https://booklist-graphql.herokuapp.com'];
-	app.use(helmet());
-
+	// app.use(helmet());
 	// let options = {
 	// 	directives: {
 	// 		scriptSrc: [
@@ -26,7 +25,6 @@ if (process.env.NODE_ENV !== 'production') {
 	// 		],
 	// 	},
 	// };
-
 	// app.use(helmet.contentSecurityPolicy(options));
 }
 
