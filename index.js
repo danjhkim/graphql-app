@@ -10,44 +10,44 @@ const helmet = require('helmet');
 
 if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').config();
-	// var whitelist = ['http://localhost:3000', 'http://localhost:4000'];
+	var whitelist = ['http://localhost:3000', 'http://localhost:4000'];
 } else {
-	// var whitelist = ['https://booklist-graphql.herokuapp.com'];
-	// app.use(helmet());
-	// let options = {
-	// 	directives: {
-	// 		scriptSrc: [
-	// 			"'self'",
-	// 			'unsafe-inline',
-	// 			'unsafe-eval',
-	// 			'http://gc.kis.v2.scr.kaspersky-labs.com',
-	// 			'https://booklist-graphql.herokuapp.com',
-	// 		],
-	// 	},
-	// };
-	// app.use(helmet.contentSecurityPolicy(options));
+	var whitelist = ['https://booklist-graphql.herokuapp.com'];
+	app.use(helmet());
+	let options = {
+		directives: {
+			scriptSrc: [
+				"'self'",
+				'unsafe-inline',
+				'unsafe-eval',
+				'http://gc.kis.v2.scr.kaspersky-labs.com',
+				'https://booklist-graphql.herokuapp.com',
+			],
+		},
+	};
+	app.use(helmet.contentSecurityPolicy(options));
 }
 
 app.use(morgan('combined'));
 
-// var corsOptions = {
-// 	origin: function (origin, callback) {
-// 		if (whitelist.indexOf(origin) !== -1) {
-// 			callback(null, true);
-// 		} else {
-// 			callback(new Error('Not allowed by CORS'));
-// 		}
-// 	},
-// };
+var corsOptions = {
+	origin: function (origin, callback) {
+		if (whitelist.indexOf(origin) !== -1) {
+			callback(null, true);
+		} else {
+			callback(new Error('Not allowed by CORS'));
+		}
+	},
+};
 
-// const limiter = rateLimit({
-// 	windowMs: 15 * 60 * 1000, // 15 minutes
-// 	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-// 	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-// 	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-// });
+const limiter = rateLimit({
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
 
-// app.use(limiter);
+app.use(limiter);
 
 mongoose
 	.connect(process.env.MONGO_URI, {
@@ -57,7 +57,7 @@ mongoose
 	.then(result => console.log('connected to db'))
 	.catch(err => console.log(err));
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 // graphqlHTTP we use it as middle as a single route and that route will be an endpoint API to the database
 // u can use something liker app.get('/graphql', graphqlHTTP) but this will only allow for get
