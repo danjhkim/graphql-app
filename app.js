@@ -15,19 +15,19 @@ if (process.env.NODE_ENV !== 'production') {
 	// var whitelist = ['https://booklist-graphql.herokuapp.com'];
 	app.use(helmet());
 
-	let options = {
-		directives: {
-			scriptSrc: [
-				"'self'",
-				'unsafe-inline',
-				'unsafe-eval',
-				'http://gc.kis.v2.scr.kaspersky-labs.com',
-				'https://booklist-graphql.herokuapp.com',
-			],
-		},
-	};
+	// let options = {
+	// 	directives: {
+	// 		scriptSrc: [
+	// 			"'self'",
+	// 			'unsafe-inline',
+	// 			'unsafe-eval',
+	// 			'http://gc.kis.v2.scr.kaspersky-labs.com',
+	// 			'https://booklist-graphql.herokuapp.com',
+	// 		],
+	// 	},
+	// };
 
-	app.use(helmet.contentSecurityPolicy(options));
+	// app.use(helmet.contentSecurityPolicy(options));
 }
 
 app.use(morgan('combined'));
