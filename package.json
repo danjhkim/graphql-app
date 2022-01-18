@@ -10,7 +10,8 @@
     "lodash": "^4.17.21",
     "mongoose": "^6.1.6",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "graphql": "^16.2.0"
   },
   "resolutions": {
     "mini-css-extract-plugin": "2.4.5"
