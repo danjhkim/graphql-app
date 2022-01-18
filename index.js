@@ -49,14 +49,14 @@ app.use(morgan('combined'));
 
 // app.use(limiter);
 
-//mongoDB connect
-// mongoose
-// 	.connect(process.env.MONGO_URI, {
-// 		useNewUrlParser: true,
-// 		useUnifiedTopology: true,
-// 	})
-// 	.then(result => console.log('connected to db'))
-// 	.catch(err => console.log(err));
+mongoDB connect
+mongoose
+	.connect(process.env.MONGO_URI, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	})
+	.then(result => console.log('connected to db'))
+	.catch(err => console.log(err));
 
 app.use(cors());
 
@@ -74,7 +74,7 @@ if (process.env.NODE_ENV === 'production') {
 	// Express will serve up the index.html file
 	// if it doesn't recognize the route
 	const path = require('path');
-	app.get('*', (req, res) => {
+	app.get('/*', (req, res) => {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});
 }
