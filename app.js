@@ -10,9 +10,9 @@ const helmet = require('helmet');
 
 if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').config();
-	var whitelist = ['http://localhost:3000', 'http://localhost:4000'];
+	// var whitelist = ['http://localhost:3000', 'http://localhost:4000'];
 } else {
-	var whitelist = ['https://booklist-graphql.herokuapp.com'];
+	// var whitelist = ['https://booklist-graphql.herokuapp.com'];
 	app.use(helmet());
 
 	let options = {
@@ -51,7 +51,7 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
-app.use(cors(whitelist));
+// app.use(cors(whitelist));
 
 //mongoDB connect
 mongoose
