@@ -57,7 +57,7 @@ mongoose
 	.then(result => console.log('connected to db'))
 	.catch(err => console.log(err));
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // graphqlHTTP we use it as middle as a single route and that route will be an endpoint API to the database
 // u can use something liker app.get('/graphql', graphqlHTTP) but this will only allow for get
