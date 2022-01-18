@@ -28,8 +28,6 @@ app.use(helmet.contentSecurityPolicy(options));
 
 app.use(helmet());
 
-app.use(helmet({ crossOriginResourcePolicy: 'cross-origin' }));
-
 var whitelist = [
 	'http://localhost:3000',
 	'http://localhost:4000',
@@ -46,7 +44,8 @@ var corsOptions = {
 	},
 };
 
-app.use(cors(corsOptions));
+//disabled for heroku
+// app.use(cors(corsOptions));
 
 const limiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
