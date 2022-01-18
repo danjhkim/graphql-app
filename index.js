@@ -10,9 +10,6 @@ const helmet = require('helmet');
 
 if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').config();
-	var whitelist = ['http://localhost:3000', 'http://localhost:4000'];
-} else {
-	var whitelist = ['https://booklist-graphql.herokuapp.com'];
 }
 let options = {
 	directives: {
@@ -29,9 +26,13 @@ app.use(morgan('combined'));
 
 app.use(helmet.contentSecurityPolicy(options));
 
-app.use(helmet({ crossOriginResourcePolicy: { policy: 'same-site' } }));
-
 app.use(helmet());
+
+var whitelist = [
+	'http://localhost:3000',
+	'http://localhost:4000',
+	'https://booklist-graphql.herokuapp.com',
+];
 
 var corsOptions = {
 	origin: function (origin, callback) {
@@ -42,6 +43,8 @@ var corsOptions = {
 		}
 	},
 };
+
+app.use(cors());
 
 const limiter = rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
@@ -59,8 +62,6 @@ mongoose
 	})
 	.then(result => console.log('connected to db'))
 	.catch(err => console.log(err));
-
-// app.use(cors(corsOptions));
 
 // graphqlHTTP we use it as middle as a single route and that route will be an endpoint API to the database
 // u can use something liker app.get('/graphql', graphqlHTTP) but this will only allow for get
