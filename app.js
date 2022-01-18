@@ -22,6 +22,7 @@ if (process.env.NODE_ENV !== 'production') {
 				'unsafe-inline',
 				'unsafe-eval',
 				'http://gc.kis.v2.scr.kaspersky-labs.com',
+				'https://booklist-graphql.herokuapp.com',
 			],
 		},
 	};
