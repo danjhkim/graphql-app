@@ -25,7 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
 			],
 		},
 	};
-	app.use(helmet.contentSecurityPolicy(options));
+	// app.use(helmet.contentSecurityPolicy(options));
 }
 
 app.use(morgan('combined'));
