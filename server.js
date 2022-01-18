@@ -65,7 +65,7 @@ mongoose
 // u can use something liker app.get('/graphql', graphqlHTTP) but this will only allow for get
 // use app.use to ensure middleware is used for specific end point but all commands
 //! graphiql is specially used for graphiql dev tool
-app.use('/graphql', graphqlHTTP({ schema: schema, graphiql: true }));
+app.use('/graphql', graphqlHTTP({ schema: schema, graphiql: false }));
 
 if (process.env.NODE_ENV === 'production') {
 	//! only production cuz development u dont wanna constantly build you just run dev on client and setup a proxy
