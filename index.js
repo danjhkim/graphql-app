@@ -28,7 +28,7 @@ app.use(helmet.contentSecurityPolicy(options));
 
 app.use(helmet());
 
-app.use(helmet({ crossOriginResourcePolicy: true }));
+app.use(helmet({ crossOriginResourcePolicy: 'cross-origin' }));
 
 var whitelist = [
 	'http://localhost:3000',
