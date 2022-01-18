@@ -49,7 +49,7 @@ var corsOptions = {
 
 // app.use(limiter);
 
-// app.use(cors(whitelist));
+app.use(cors());
 
 //mongoDB connect
 mongoose
