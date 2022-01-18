@@ -13,22 +13,25 @@ if (process.env.NODE_ENV !== 'production') {
 	var whitelist = ['http://localhost:3000', 'http://localhost:4000'];
 } else {
 	var whitelist = ['https://booklist-graphql.herokuapp.com'];
-	app.use(helmet());
-	let options = {
-		directives: {
-			scriptSrc: [
-				"'self'",
-				'unsafe-inline',
-				'unsafe-eval',
-				'http://gc.kis.v2.scr.kaspersky-labs.com',
-				'https://booklist-graphql.herokuapp.com',
-			],
-		},
-	};
-	app.use(helmet.contentSecurityPolicy(options));
 }
-
+let options = {
+	directives: {
+		scriptSrc: [
+			"'self'",
+			'unsafe-inline',
+			'unsafe-eval',
+			'http://gc.kis.v2.scr.kaspersky-labs.com',
+			'https://booklist-graphql.herokuapp.com',
+		],
+	},
+};
 app.use(morgan('combined'));
+
+app.use(helmet.contentSecurityPolicy(options));
+
+app.use(helmet({ crossOriginResourcePolicy: { policy: 'same-site' } }));
+
+app.use(helmet());
 
 var corsOptions = {
 	origin: function (origin, callback) {
