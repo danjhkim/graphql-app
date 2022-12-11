@@ -19,6 +19,7 @@ let options = {
 			'unsafe-eval',
 			'http://gc.kis.v2.scr.kaspersky-labs.com',
 			'https://booklist-graphql.herokuapp.com',
+			'https://graphql-app.adaptable.app/',
 		],
 	},
 };
@@ -32,6 +33,7 @@ var whitelist = [
 	'http://localhost:3000',
 	'http://localhost:4000',
 	'https://booklist-graphql.herokuapp.com',
+	'https://graphql-app.adaptable.app/',
 ];
 
 var corsOptions = {
