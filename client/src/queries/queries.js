@@ -44,4 +44,5 @@ const ADD_BOOK = gql`
 	}
 `;
 
+//return name after adding little redundant but i think it needs to return something
 export { GET_AUTHORS, ADD_BOOK, GET_BOOKS, GET_BOOK };

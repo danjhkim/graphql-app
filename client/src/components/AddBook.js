@@ -22,8 +22,6 @@ const AddBook = () => {
 				authorId: bookInfo.authorId,
 			},
 		});
-
-		return { addBook, data };
 	}
 
 	const displayAuthors = () => {

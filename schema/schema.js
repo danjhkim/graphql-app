@@ -72,7 +72,7 @@ const AuthorType = new GraphQLObjectType({
 		},
 		books: {
 			// this means books are gonna be a new list of BookType
-			//! graphqllist list is when u are a relational return but in list form as multiple entries
+			//! GraphQLList is when u are a relational return but in list form as multiple entries
 			type: new GraphQLList(BookType),
 			resolve(parent, args) {
 				// this resolve within the object it linking author info within a book API call

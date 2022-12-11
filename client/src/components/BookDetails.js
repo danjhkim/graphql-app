@@ -20,7 +20,6 @@ const BookDetails = ({ bookId }) => {
 
 	const renderhelper = book => {
 		if (book) {
-			console.log(book.name);
 			return (
 				<div>
 					<h2>{book.name}</h2>
