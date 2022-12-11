@@ -31,7 +31,7 @@ const BookList = () => {
 	return (
 		<div>
 			<ul id='book-list'>{displayBooks()}</ul>
-			<button className='refetcher' onClick={refetch}>
+			<button className='refetcher' onClick={e => refetch()}>
 				Refetch!
 			</button>
 			<BookDetails bookId={selected} />
